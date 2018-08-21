@@ -53,4 +53,13 @@ class Comment extends Model
     {
         return route('groups.discussions.show', [$this->discussion->group, $this->discussion]).'#comment_'.$this->id;
     }
+
+    /**
+     * Get Reactable's reactions
+     */
+    public function reactions()
+    {
+        return $this->morphMany(\App\Reaction::class, 'reactable');
+    }
+
 }

@@ -146,8 +146,9 @@ Route::group(['middleware' => ['web']], function () {
 
     // Reactions on comments
 
-    Route::get('comments/{comment}/react/{context}', 'CommentReactionController@store');
-    Route::get('comments/{comment}/unreact', 'CommentReactionController@destroy');
+    Route::get('comments/{comment}/react', 'CommentReactionController@create')->name('comments.reaction.create');
+    Route::get('comments/{comment}/react/{context}', 'CommentReactionController@store')->name('comments.reaction.store');
+    Route::get('comments/{comment}/unreact', 'CommentReactionController@destroy')->name('comments.reaction.destroy');
 
 
     // Groups : only members (or everyone if a group is public)

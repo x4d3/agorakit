@@ -10,6 +10,20 @@ use Auth;
 class CommentReactionController extends Controller
 {
 
+
+  /**
+   * Form to choose a reaction
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function create(Request $request, Comment $comment)
+  {
+      return view('reactions.create')
+      ->with('comment', $comment);
+
+  }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -20,6 +34,7 @@ class CommentReactionController extends Controller
     {
         //$comment->reaction($context, Auth::user());
         Reaction::reactTo($comment, $context);
+        return redirect(route('groups.discussions.show', [$comment->discussion->group, $comment->discussion]));
     }
 
 
@@ -29,8 +44,8 @@ class CommentReactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy($model)
     {
-        Reaction::unReactTo($comment);
+        Reaction::unReactTo($model);
     }
 }
