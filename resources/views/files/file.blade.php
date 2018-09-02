@@ -66,7 +66,7 @@
   @can('update', $file)
     <div class="ml-auto dropdown">
       <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fa fa-wrench" aria-hidden="true"></i>
+        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 
       </button>
 
@@ -74,7 +74,7 @@
 
         @can('update', $file)
           <a class="dropdown-item" href="{{ route('groups.files.edit', [$file->group, $file]) }}">
-            <i class="fa fa-pencil"></i>
+            <i class="fa fa-pencil-alt"></i>
             {{trans('messages.edit')}}
           </a>
         @endcan

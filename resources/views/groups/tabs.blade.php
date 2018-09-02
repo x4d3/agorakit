@@ -114,11 +114,11 @@
         @can ('administer', $group)
             <li class="nav-item dropdown">
                 <a href="#" id="admin" data-toggle="dropdown" aria-controls="admin-contents" aria-expanded="false"  class="dropdown-toggle nav-link @if (isset($tab) && ($tab == 'admin')) active @endif">
-                    <i class="fa fa-wrench"></i> <span class="d-none d-lg-inline">{{ trans('messages.administration') }}</span>
+                    <i class="fa fa-cog"></i> <span class="d-none d-lg-inline">{{ trans('messages.administration') }}</span>
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ route('groups.edit', $group) }}">
-                        <i class="fa fa-pencil"></i> {{ trans('messages.edit') }}
+                        <i class="fa fa-pencil-alt"></i> {{ trans('messages.edit') }}
                     </a>
 
                     <a class="dropdown-item" href="{{ action('ModuleController@update', $group) }}">

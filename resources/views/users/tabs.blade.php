@@ -25,7 +25,7 @@
     @can('update', $user)
         <li class="nav-item">
             <a href="{{ route('users.edit', $user) }}" class="nav-link @if (isset($tab) && ($tab == 'edit')) active @endif">
-                <i class="fa fa-pencil"></i>
+                <i class="fa fa-pencil-alt"></i>
                 {{trans('messages.edit')}}
             </a>
         </li>

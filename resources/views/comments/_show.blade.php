@@ -22,19 +22,19 @@
                     @can('update', $comment)
                     <div class="ml-4 dropdown">
                         <button class="btn btn-secondary-outline dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
 
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                             @can('update', $comment)
-                                <a class="dropdown-item" href="{{ action('CommentController@edit', [$group, $discussion, $comment]) }}"><i class="fa fa-pencil"></i>
+                                <a class="dropdown-item" href="{{ action('CommentController@edit', [$group, $discussion, $comment]) }}"><i class="fa fa-pencil-alt"></i>
                                     {{trans('messages.edit')}}
                                 </a>
                             @endcan
 
                             @can('delete', $comment)
-                                <a class="dropdown-item" up-modal=".dialog" href="{{ action('CommentController@destroyConfirm', [$group, $discussion, $comment]) }}"><i class="fa fa-trash"></i>
+                                <a class="dropdown-item" up-modal=".dialog" href="{{ action('CommentController@destroyConfirm', [$group, $discussion, $comment]) }}"><i class="fa fa-trash-alt"></i>
                                     {{trans('messages.delete')}}
                                 </a>
                             @endcan

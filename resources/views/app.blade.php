@@ -1,64 +1,67 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <title>{{setting('name')}}</title>
+  <meta charset="UTF-8"/>
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <title>{{setting('name')}}</title>
 
-    <link rel="shortcut icon" href="{{{ asset('storage/logo/favicon.png') }}}">
+  <link rel="shortcut icon" href="{{{ asset('storage/logo/favicon.png') }}}">
 
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/unpoly@0.53.0/dist/unpoly.min.css">
-
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css">
 
 
-    <!-- additional css -->
+  <link rel="stylesheet" href="https://unpkg.com/unpoly@0.53.0/dist/unpoly.min.css">
 
-    @yield('css')
-    @stack('css')
+  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
-    <!-- head -->
-    @yield('head')
+
+  <!-- additional css -->
+
+  @yield('css')
+  @stack('css')
+
+  <!-- head -->
+  @yield('head')
 </head>
 
 <body>
 
-    @unless (request()->get('embed'))
-        @if (Auth::check())
-            @include('partials.nav')
-        @else
-            @include('partials.nav-guest')
-        @endif
-    @endunless
+  @unless (request()->get('embed'))
+    @if (Auth::check())
+      @include('partials.nav')
+    @else
+      @include('partials.nav-guest')
+    @endif
+  @endunless
 
-    @include('partials.errors')
+  @include('partials.errors')
 
-    <div class="container main-container @if (isset($dialog)) main-dialog @endif">
-        <div class="main">
-            @yield('content')
-        </div>
+  <div class="container main-container @if (isset($dialog)) main-dialog @endif">
+    <div class="main">
+      @yield('content')
     </div>
+  </div>
 
-    <div class="credits">
-        {{trans('messages.made_with')}}
-        <a href="https://www.agorakit.org">Agorakit ({{config('agorakit.version')}})</a>
-        - <a href="{{request()->fullUrlWithQuery(['embed'=>1])}}">{{trans('messages.embed')}}</a>
-    </div>
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://unpkg.com/unpoly@0.53.0/dist/unpoly.min.js"></script>
+  <div class="credits">
+    {{trans('messages.made_with')}}
+    <a href="https://www.agorakit.org">Agorakit ({{config('agorakit.version')}})</a>
+    - <a href="{{request()->fullUrlWithQuery(['embed'=>1])}}">{{trans('messages.embed')}}</a>
+  </div>
 
 
-    @yield('js')
-    @stack('js')
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}"></script>
+  <script src="https://unpkg.com/unpoly@0.53.0/dist/unpoly.min.js"></script>
 
 
-    <!-- footer -->
-    @yield('footer')
+  @yield('js')
+  @stack('js')
+
+
+  <!-- footer -->
+  @yield('footer')
 
 
 

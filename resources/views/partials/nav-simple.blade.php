@@ -8,7 +8,7 @@
     @endif
     <span class="ml-1 d-lg-none d-md-inline d-none d-xl-inline">{{setting('name')}}</span>
   </a>
-  
+
 
 
 
@@ -20,7 +20,7 @@
     @if(\Config::has('app.locales'))
       <div class="dropdown nav-item">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-language"></i> {{ strtoupper(app()->getLocale()) }}
+          <i class="fa fa-flag"></i> {{ strtoupper(app()->getLocale()) }}
         </a>
         <div class="dropdown-menu">
           @foreach(\Config::get('app.locales') as $locale)

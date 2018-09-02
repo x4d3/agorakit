@@ -102,7 +102,7 @@
         @if(\Config::has('app.locales'))
             <div class="dropdown nav-item">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-language"></i> {{ strtoupper(app()->getLocale()) }}
+                    <i class="fa fa-flag"></i> {{ strtoupper(app()->getLocale()) }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     @foreach(\Config::get('app.locales') as $locale)
