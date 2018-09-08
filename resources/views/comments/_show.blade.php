@@ -1,26 +1,28 @@
 <a name="comment_{{$comment->id}}"></a>
 
-<div class="comment
-@if ($comment_key + 2 > $read_comments) unread @else read @endif"
-    @if ($comment_key + 2 == $read_comments) id="unread" @endif>
+<div class="w-100  comment @if ($comment->isread) read  @endif">
+    <div class="d-flex justify-content-between">
 
         <div class="d-flex">
+            <div class="avatar mr-2">
+                <img src="{{route('users.cover', [$comment->user, 'small'])}}" class="rounded-circle"/>
+            </div>
 
-            <div class="avatar mr-3"><img src="{{route('users.cover', [$comment->user, 'small'])}}" class="rounded-circle"/></div>
+            <div class="user mt-1">
+                <a href="{{ route('users.show', [$comment->user]) }}">{{$comment->user->name}}</a>
+            </div>
 
-            <div class="w-100">
-                <div class="user"><a href="{{ route('users.show', [$comment->user]) }}">{{$comment->user->name}}</a></div>
+            <div class="summary mt-1">
+                {{strip_tags(summary($comment->body))}}
+            </div>
+        </div>
 
-                <div class="body">{!! highlightMentions(filter($comment->body)) !!}</div>
+        <div class="d-flex justify-content-right">
+            <div class="created_at">{{$comment->created_at->diffForHumans()}}</div>
 
-
-
-                <div class="d-flex justify-content-between">
-                    <div class="meta">{{$comment->created_at->diffForHumans()}}</div>
-
-
-                    @can('update', $comment)
-                    <div class="ml-4 dropdown">
+            <div class="tools">
+                @can('update', $comment)
+                    <div class="ml-4 dropdown actions">
                         <button class="btn btn-secondary-outline dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-cog" aria-hidden="true"></i>
 
@@ -45,7 +47,11 @@
                         </div>
                     </div>
                 @endcan
-                </div>
             </div>
         </div>
     </div>
+
+    <div class="body ml-5 mt-2">
+        {!! highlightMentions(filter($comment->body)) !!}
+    </div>
+</div>

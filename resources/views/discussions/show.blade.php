@@ -70,12 +70,14 @@
 
 
     <div class="comments">
-      @foreach ($discussion->comments as $comment_key => $comment)
+      @foreach ($discussion->comments as $comment)
         @include('comments._show')
       @endforeach
 
       @can('create-comment', $group)
-        @include ('comments.create')
+        <div class="reply">
+          @include ('comments.create')
+        </div>
       @endcan
     </div>
 
@@ -93,5 +95,13 @@
       $(document).scrollTop( $("#unread").offset().top-60 );
     }
   });
+
+
+
+  $( ".comment" ).click(function() {
+    $( this ).toggleClass( "read" );
+  });
+
   </script>
+
 @append

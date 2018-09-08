@@ -135,6 +135,20 @@ class GroupDiscussionController extends Controller
       $read_comments = 0;
     }
 
+    // fill unread variable of each comment for later use in the views
+
+    foreach ($discussion->comments as $comment_key => $comment)
+    {
+      if ($comment_key > $read_comments - 2)
+      {
+        $comment->isread = false;
+      }
+      else {
+          $comment->isread = true;
+      }
+
+    }
+
     return view('discussions.show')
     ->with('discussion', $discussion)
     ->with('read_comments', $read_comments)

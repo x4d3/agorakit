@@ -1,6 +1,15 @@
 .discussion .body a
 {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.comments
+{
+  max-width: 65em;
+  .reply
+  {
+    margin-top: 3rem;
+  }
 }
 
 .discussions
@@ -19,7 +28,7 @@
       font-weight: bold;
     }
 
-      .name
+    .name
     {
       font-weight: bold;
       display: block;
@@ -28,7 +37,7 @@
 
     .content .summary a
     {
-        color: $body-color;
+      color: $body-color;
     }
 
     .avatar
@@ -55,11 +64,6 @@
     }
 
 
-    .comments
-    {
-      max-width: 65em;
-    }
-
 
     .user
     {
@@ -72,5 +76,6 @@
       margin-top: 1em;
       margin-bottom: 2em;
     }
+
   }
 }
