@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Venturecraft\Revisionable\RevisionableTrait;
 use Watson\Validating\ValidatingTrait;
 use Cviebrock\EloquentTaggable\Taggable;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
@@ -18,6 +19,7 @@ class User extends Authenticatable
     use SoftDeletes;
     use Sluggable;
     use Taggable;
+    use HasRolesAndAbilities;
 
     /**
      * The attributes that are mass assignable.

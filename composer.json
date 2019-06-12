@@ -23,6 +23,7 @@
     "laravelcollective/html": "5.8.*",
     "nicolaslopezj/searchable": "^1.10",
     "rap2hpoutre/laravel-log-viewer": "0.*",
+    "silber/bouncer": "v1.0.0-rc.5",
     "suin/php-rss-writer": "^1.6",
     "tio/laravel": "^1.6",
     "toin0u/geocoder-laravel": "^4.1",
