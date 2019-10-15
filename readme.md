@@ -84,7 +84,7 @@ Check the documentation for more information : https://agorakit.readthedocs.io/e
 
 
 ## Contributing
-It's all explained here :  https://github.com/philippejadin/agorakit/wiki/How-can-I-contribute-to-agorakit-%3F
+It's all explained here : https://agorakit.readthedocs.io/en/latest/development.html#developing-with-agorakit
 
 > You are really welcome to help on this project !
 
